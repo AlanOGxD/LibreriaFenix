@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Librería Fenix</title>
     <link rel="stylesheet" href="../Diseño/header.css">
+    <script type="text/javascript" src="js/boostrap.js"></script>
 </head>
 <header class="header">
     <div style="background-color: darkred; text-align: center;">
@@ -37,6 +38,61 @@
       }
   </style>
 <body>
+    <div class="container-fluid">
+    <div id="myCarousel" class="carousel row" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="title">
+                    <label>El_Silecio_De_La_Ciudad_Blanca</label>
+                   <!-- <div class="description"></div>-->
+                </div>
+                <img class="carousel-img" src="../Imagenes/libros/El_Silecio_De_La_Ciudad_Blanca.jpg" alt="Chania">
+            </div>
+
+            <div class="item">
+                <div class="title">
+                    <label>El Vendedor De Sueños</label>
+                <!--<div class="description"></div>-->
+                </div>
+                <img class="carousel-img" src="../Imagenes/libros/El_Vendedor_De_Sueños.jpg" alt="Chania">
+            </div>
+
+            <div class="item">
+                <div class="title">
+                    <label>Las Mil Y Una Noches</label>
+                    <!--<div class="description"></div>-->
+                </div>
+                <img class="carousel-img" src="../Imagenes/libros/Las_Mil_Y_Una_Noches.jpg" alt="Chania">
+            </div>
+
+            <div class="item">
+                <div class="title">
+                    <label>Lo que el viento</label>
+                    <!--<div class="description"></div>-->
+                </div>
+                <img class="carousel-img" src="../Imagenes/libros/Lo_Que_El_Viento.jpg" alt="Chania">
+            </div>
+        </div>
+    </div>
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
 
    <img class= "fondo" style="margin: 0px auto; display: block;" >
 
