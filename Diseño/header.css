@@ -34,7 +34,7 @@ header nav{
     text-align: center;
 }
 
-div.sesion{
+.sesion a.nav-item{
 
     float: right;
     text-align: center;
