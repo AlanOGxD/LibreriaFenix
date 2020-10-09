@@ -15,7 +15,7 @@ header nav{
     background-color: darksalmon;
 }
 
-.header .navbar-logo{
+header a.navbar-logo{
     background: url(../Imagenes/logo3.png) no-repeat center;
     /*padding-left: 40px;*/
     padding: 25px;
@@ -27,7 +27,13 @@ header nav{
    
 }
 
-.header div a.nav-item{
+body .fondo{
+    background:url(../Imagenes/Fondo1.png) no-repeat center; 
+    padding: 750px;
+    padding-top: 0%;
+}
+
+header div a.nav-item{
     color: white;
     padding: 0px 10px;
     float: left;
@@ -35,7 +41,6 @@ header nav{
 }
 
 .sesion a.nav-item{
-
     float: right;
     text-align: center;
 }
