@@ -1,0 +1,41 @@
+.header {
+    /*background-size: cover;*/
+    background-color: darkred;
+    padding: 40px;
+    /*text-align: center;*/
+    
+  }
+
+  
+.header .navbar {
+  background-color: transparent !important;
+}
+
+header nav{
+    background-color: darksalmon;
+}
+
+.header .navbar-logo{
+    background: url(../Imagenes/logo3.png) no-repeat center;
+    /*padding-left: 40px;*/
+    padding: 25px;
+  padding-top: 30px;
+  padding-bottom: 40px;
+   margin: 0px auto;
+   display: block;
+   text-align: left;
+   
+}
+
+.header div a.nav-item{
+    color: white;
+    padding: 0px 10px;
+    float: left;
+    text-align: center;
+}
+
+div.sesion{
+
+    float: right;
+    text-align: center;
+}
