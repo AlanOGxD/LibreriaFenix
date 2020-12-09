@@ -2,8 +2,8 @@
 
 define("BD_HOST", "localhost");
 define("BD_USU", "root");
-define("BD_PASS", "");
-define("BD_BASSE", "proyecto");
+define("BD_PASS", "alanxD");
+define("BD_BASSE", "Libreria_Fenix");
 
 function conectarse() 
 {
