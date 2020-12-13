@@ -2,10 +2,10 @@
 
 class Database
 {   
-    protected static $host = "sql203.byethost5.com";
-    protected static $db = "b5_27450890_libreria";
-    protected static $username = "b5_27450890";
-    protected static $password = "Asalto12";
+    protected static $host = "localhost";
+    protected static $db = "libreria";
+    protected static $username = "root";
+    protected static $password = "";
     protected static $instance;
 
     protected function __construct() { }
@@ -28,10 +28,9 @@ class Database
                 self::$instance->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 				self::$instance->query('SET NAMES utf8');
 				self::$instance->query('SET CHARACTER SET utf8');
-				
 			} catch(PDOException $error) {
 				echo $error->getMessage();
-			
+			}
 
 		}
 
@@ -39,5 +38,5 @@ class Database
     }
 }
 
-}
+
 ?>

@@ -25,6 +25,7 @@ if (
     $libro->editorial = $data->editorial;
     $libro->stock = $data->stock;
     $libro->anioPublicacion = $data->anioPublicacion;
+    $libro->precio = $data->precio;
     $libro->categoria = '';
     if (isset($data->categoria)) {
         $libro->categoria = $data->categoria;

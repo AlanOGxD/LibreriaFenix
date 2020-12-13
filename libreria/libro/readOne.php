@@ -7,6 +7,7 @@ $libro = new Libro();
 
 if(isset($_GET['idLibro'])) {
     $libro->idLibro = $_GET['idLibro'];
+    $libro->isbn = $_GET['idLibro'];
 
     $res = $libro->GetLibro();
     if($res) {

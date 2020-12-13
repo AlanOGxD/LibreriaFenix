@@ -5,9 +5,11 @@ include_once '../modelos/cliente.php';
 
 $cliente = new Cliente();
 
-if(isset($_GET['usuario']) && isset($_GET['contrasena'])) {
-    $cliente->usuario = hash('ripemd160', $_GET['usuario']);
-    $cliente->contrasena = hash('ripemd160', $_GET['contrasena']);
+$data = json_decode(file_get_contents('php://input'));
+
+if(isset($data->usuario) && isset($data->contrasena)) {
+    $cliente->usuario = hash('ripemd160', $data->usuario);
+    $cliente->contrasena = hash('ripemd160', $data->contrasena);
 
     $res = $cliente->Login();
     if($res === TRUE) {
