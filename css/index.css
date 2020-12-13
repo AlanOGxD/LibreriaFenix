@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
+body {
+    font-family: 'DM Sans', sans-serif !important;
+}
+
+.bg-red {
+    background: #e52d27;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #b31217, #e52d27);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #b31217, #e52d27);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 0% 100%);
+}
+
+.main {
+    width: 100%;
+    min-height: 110vh;
+}
+
+.carousel img {
+    margin-left: 10%;
+    /* max-width: 20%; */
+}
+
+.carousel-caption {
+    left: auto !important;
+    max-width: 42%;
+    right: 10% !important;
+    text-align: left !important;
+    top: 50px;
+}
+
+.card {
+    cursor: pointer;
+    border: none;
+}
+
+.card:hover {
+    box-shadow: 10px 9px 5px -5px rgba(207,207,207,0.75);
+    -webkit-box-shadow: 10px 9px 5px -5px rgba(207,207,207,0.75);
+    -moz-box-shadow: 10px 9px 5px -5px rgba(207,207,207,0.75);
+}
+
+.title {
+    font-weight: bold;
+    padding: 10px;
+    width: 100%;
+}
+
+.title:after {
+    display: block;
+    content: "";
+    width: 50px;
+    height: 2px;
+    margin: 15px 0;
+    background-color: #e52d27;
+}
+
+.capitalize {
+    text-transform: uppercase;
+}
+
+.slick-slide {
+    padding: 5px;
+}
