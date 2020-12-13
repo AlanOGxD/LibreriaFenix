@@ -1,0 +1,7 @@
+Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+# RedirectMatch .*libro/([0-9]+)$ http://localhost/fenix/libro.php?isbn=$1
+ErrorDocument 404  http://%{HTTP_HOST}/fenix/404
