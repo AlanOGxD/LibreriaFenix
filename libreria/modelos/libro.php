@@ -120,6 +120,38 @@ class Libro
         }
     }
 
+    public function GetLibrosRamdom() 
+    {
+        $query = "SELECT * FROM $this->table_name ORDER BY RAND() LIMIT 5";
+        $stm = $this->conexion->prepare($query);
+        $stm->bindParam(":categoria", $this->categoria);
+        try{
+            $stm->execute();
+            $data = array();
+            while($row = $stm->fetch(PDO::FETCH_ASSOC)) {
+                extract($row);
+                $libro = array (
+                    "idLibro" => $idLibro,
+                    "isbn" => $isbn,
+                    "nombre" => $nombre,
+                    "autor" => $autor,
+                    "editorial" => $editorial,
+                    "stock" => intval($stock),
+                    "categoria" => $categoria,
+                    "anioPublicacion" => intval($anioPublicacion),
+                    "imagen" => $imagen,
+                    "sinopsis" => $sinopsis,
+                    "precio" => doubleval($precio),
+                );
+                ksort($libro);
+                $data[] = $libro;
+            }
+            return $data;
+        } catch(PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
     public function NuevoLibro() 
     {
         $query = "INSERT INTO $this->table_name SET
@@ -132,7 +164,7 @@ class Libro
             anioPublicacion = :anioPublicacion,
             imagen = :imagen,
             sinopsis = :sinopsis,
-            precio = :precio,";
+            precio = :precio";
 
         $stmt = $this->conexion->prepare($query);
         $stmt->bindParam(":isbn", $this->isbn);
