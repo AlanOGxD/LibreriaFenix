@@ -25,7 +25,7 @@ const passwordInput = document.querySelector('#inputPassword');
 
 var verifyCaptcha = (token) => {
     const data = {
-        secret: '6LeA2AMaAAAAAH9vKvE3pg33TyFzD8XpbZIV56OM',
+        secret: '6LfzgQQaAAAAACVQVQdkY57TDpeMBNLiNlmNV9L8',
         response: token
     }; 
     if (token !== undefined) {
