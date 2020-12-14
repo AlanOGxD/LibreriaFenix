@@ -51,6 +51,36 @@ class Carrito
         }
     }
 
+    public function GetCarrito() 
+    {
+        $query = "SELECT * FROM $this->table_name WHERE idCarrito = :idCarrito";
+        $stm = $this->conexion->prepare($query);
+        $stm->bindParam(":idCarrito", $this->idCarrito);
+
+        try{
+            $stm->execute();
+            $data = array();
+            while($row = $stm->fetch(PDO::FETCH_ASSOC)) {
+                extract($row);
+
+                $this->libro->isbn = $isbn;
+                $venta = array (
+                    "idCarrito" => $idCarrito,
+                    "isbn" => $isbn,
+                    "usuario" => $usuario,
+                    "fecha" => $fecha,
+                    "cantidad" => $cantidad,
+                    "libro" => $this->libro->GetLibro()
+                );
+                ksort($venta);
+                $data[] = $venta;
+            }
+            return $data;
+        } catch(PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
     public function AgregarACarrito() {
         $query = "INSERT INTO $this->table_name SET
                 isbn = :isbn,

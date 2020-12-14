@@ -9,7 +9,7 @@ if(isset($_GET['usuario'])) {
     $carrito->usuario = $_GET['usuario'];
 
     $data = $carrito->GetCarritoPorUsuario();
-    if(count($data) > 0) {
+    if(count($data) > 0) {        
         http_response_code(200);
         echo json_encode(array("success" => true, "status" => 200, "carrito" => $data));
     } else {

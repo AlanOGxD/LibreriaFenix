@@ -7,7 +7,7 @@ include_once '../modelos/detalleVenta.php';
 $venta = new Venta();
 
 // $data = json_decode(file_get_contents("php://input"));
-$data = (object)$_POST;
+$data = ( count($_POST) > 0) ? (object)$_POST : json_decode(file_get_contents("php://input"));
 
 if (
     isset($data->cliente) &&
@@ -27,7 +27,7 @@ if (
         $detalleResult = array();
         foreach ($venta->detalle as $key => $d) {
             $detalleVenta = new DetalleVenta();
-            $d = json_decode($d);
+            // $d = json_decode($d);
             $detalleVenta->producto = $d->producto;
             $detalleVenta->cantidad = $d->cantidad;
             $detalleVenta->precio = $d->precio;
@@ -40,7 +40,7 @@ if (
         }
 
         http_response_code(201);
-        echo json_encode(array("success" => true, "status" => 201, "message" => "Registro creado con éxito.", "venta" => $venta, "detalles" => $detalleResult));
+        echo json_encode(array("success" => true, "status" => 201, "message" => "La venta se registro correctamente.", "venta" => $venta, "detalles" => $detalleResult));
     } else {
         http_response_code(503);
         echo json_encode(array("success" => false, "status" => 503, "message" => $res));

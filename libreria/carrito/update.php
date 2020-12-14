@@ -5,8 +5,8 @@ include_once '../modelos/carrito.php';
 
 $carrito = new Carrito();
 
-// $data = json_decode(file_get_contents("php://input"));
-$data = (object)$_POST;
+$data = ( count($_POST) > 0) ? (object)$_POST : json_decode(file_get_contents("php://input"));
+// $data = (object)$_POST;
 
 if (
     isset($data->isbn) &&
@@ -32,7 +32,7 @@ if (
     }
 } else  {
     http_response_code(400);
-    echo json_encode(array("success" => false, "status" => 400, "message" => "No se puede procesar la solicitud, los datos estan incompletos"));
+    echo json_encode(array("success" => false, "status" => 400, "message" => "No se puede procesar la solicitud, los datos estan incompletos", "data" => $data));
 }
 
 

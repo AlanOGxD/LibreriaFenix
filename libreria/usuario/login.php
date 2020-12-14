@@ -5,7 +5,7 @@ include_once '../modelos/usuario.php';
 
 $usuario = new Usuario();
 
-$data = json_decode(file_get_contents('php://input'));
+$data = ( count($_POST) > 0) ? (object)$_POST : json_decode(file_get_contents("php://input"));
 
 if(isset($data->usuario) && isset($data->contrasena)) {
     $usuario->usuario = hash('ripemd160', $data->usuario);

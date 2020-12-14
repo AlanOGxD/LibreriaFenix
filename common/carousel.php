@@ -14,7 +14,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h3> <?php  echo $libro->nombre; ?> </h3>
                     <p> <?php  echo $libro->sinopsis; ?> </p>
-                    <button class="btn btn-primary"> <i class="icofont-shopping-cart"></i> Comprar</button>
+                    <a class="btn btn-primary btn-sm capitalize add-cart" book-isbn="<?php echo $libro->isbn; ?>"> <i class="icofont-shopping-cart"></i> Añdir al carrito</a>
                 </div>
             </div>
             <?php endforeach; ?>

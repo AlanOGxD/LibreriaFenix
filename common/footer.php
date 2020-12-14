@@ -44,8 +44,8 @@
             <div class="col-lg-3 col-md-6 p-3 border-left-footer">
                 <h6 class="footer-title">Mi cuenta</h6>
                 <div class="w-100 footer-info">
-                    <p> <a href="#" class="p-2"> Registrarse </a></p>
-                    <p> <a href="#" class="p-2"> Iniciar sesi&oacute;n </a></p>
+                    <p> <a href="registro.html" class="p-2"> Registrarse </a></p>
+                    <p> <a href="login.html" class="p-2"> Iniciar sesi&oacute;n </a></p>
                     <!-- <p> <a href="#" class="p-2"> Favoritos </a></p> -->
                 </div>
             </div>

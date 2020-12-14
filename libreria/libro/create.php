@@ -6,7 +6,7 @@ include_once '../modelos/libro.php';
 $libro = new Libro();
 
 // $data = json_decode(file_get_contents("php://input"));
-$data = (object)$_POST;
+$data = ( count($_POST) > 0) ? (object)$_POST : json_decode(file_get_contents("php://input"));
 
 if (
     isset($data->isbn) &&

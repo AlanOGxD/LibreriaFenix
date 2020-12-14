@@ -5,8 +5,8 @@ include_once '../modelos/carrito.php';
 
 $carrito = new Carrito();
 
-// $data = json_decode(file_get_contents("php://input"));
-$data = (object)$_POST;
+$data = ( count($_POST) > 0) ? (object)$_POST : json_decode(file_get_contents("php://input"));
+// $data = (object)$_POST;
 
 if (
     isset($data->isbn) &&
@@ -22,8 +22,9 @@ if (
 
     $res = $carrito->AgregarACarrito();
     if($res === TRUE){
+        $carrito = $carrito->GetCarrito()[0];
         http_response_code(201);
-        echo json_encode(array("success" => true, "status" => 201, "message" => "Registro creado con éxito.", "carrito" => $carrito));
+        echo json_encode(array("success" => true, "status" => 201, "message" => "El libro se agrego al carrito!.", "carrito" => $carrito));
     } else {
         http_response_code(503);
         echo json_encode(array("success" => false, "status" => 503, "message" => $res));

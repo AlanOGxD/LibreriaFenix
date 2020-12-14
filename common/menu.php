@@ -12,28 +12,28 @@
                     <ul class="navbar-nav">                       
                         <?php  if(!isset($_SESSION['nombre'])): ?>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="login.html">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="registro.html">Registrate</a>
-                        </li>
+                                <a class="nav-link text-white" href="login.html">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="registro.html">Registrate</a>
+                            </li>
                         <?php else: ?>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Bienvenido <?php echo $_SESSION['nombre'] ?></a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-warning text-white" href="#" tabindex="-1" aria-disabled="true">
-                                <i class="icofont-shopping-cart"></i> 10
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="controllers/logout.php">
-                                <span>Salir</span> <i class="icofont-logout"></i>
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="#">Bienvenido <?php echo $_SESSION['nombre'] ?></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-warning text-white" href="carrito.php" tabindex="-1" aria-disabled="true">
+                                    <i class="icofont-shopping-cart"></i> <span class="cart-count"><?php echo count($carrito) ?></span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white logout-link" href="#">
+                                    <span>Salir</span> <i class="icofont-logout"></i>
+                                </a>
+                            </li>
                         <?php endif; ?>                        
                     </ul>
                 </div>

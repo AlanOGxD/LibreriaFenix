@@ -2,6 +2,7 @@
 
 include_once('controllers/checkSession.php');
 include_once('controllers/LibroController.php');
+include_once('controllers/CarritoController.php');
 
 if (!isset($_GET['isbn'])) {
     header('location: 404.php');
@@ -13,6 +14,7 @@ if ($libro === null) {
 }
 
 $sugerancias = LibroController::getSuggestions();
+$carrito = CarritoController::getAll($_SESSION['usuario']);
 
 ?>
 
@@ -64,7 +66,7 @@ $sugerancias = LibroController::getSuggestions();
                                     <p>
                                         <?php echo $libro->sinopsis; ?>
                                     </p>
-                                    <a class="btn btn-outline-primary capitalize add-cart">
+                                    <a class="btn btn-outline-primary capitalize add-cart" book-isbn="<?php echo $libro->isbn; ?>">
                                         <i class="icofont-shopping-cart"></i>
                                         Añadir al carrito
                                     </a>
@@ -94,10 +96,10 @@ $sugerancias = LibroController::getSuggestions();
                                     <h6 class="card-title"><strong> <?php echo $libro->nombre; ?> </strong></h6>
                                     <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p> -->
                                     <p class="card-text text-danger"><strong>MXN <?php echo '$' . number_format($libro->precio, 2); ?></strong></p>
-                                    <a href="libro.php?isbn=<?php echo $libro->isbn ?>" class="btn btn-outline-primary btn-sm capitalize add-cart">
+                                    <button class="btn btn-outline-primary btn-sm capitalize add-cart" book-isbn="<?php echo $libro->isbn; ?>">
                                         <i class="icofont-shopping-cart"></i>
                                         Añadir al carrito
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         <?php endforeach; ?>
@@ -117,7 +119,14 @@ $sugerancias = LibroController::getSuggestions();
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     <script src="assets/plugins/slick/slick.js"></script>
+    <script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <script>
+        let carrito = <?php echo json_encode($carrito); ?>;
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        const API_URL = '<?php echo API_URL; ?>'
+    </script>
     <script src="js/slider.js"></script>
+    <script src="js/carrito.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,11 @@
+<?php
+
+include_once('controllers/checkSession.php');
+include_once('controllers/CarritoController.php');
+
+$carrito = CarritoController::getAll($_SESSION['usuario']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

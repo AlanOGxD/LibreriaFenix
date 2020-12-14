@@ -1,5 +1,8 @@
 const usuarioInput = document.querySelector('#inputusuario');
 const passwordInput = document.querySelector('#inputPassword');
+const nombreInput = document.querySelector('#inputNombres');
+const paternoinput = document.querySelector('#inputPaterno');
+const maternoinput = document.querySelector('#inputMaterno');
 
 (function() {
     'use strict';
@@ -12,13 +15,16 @@ const passwordInput = document.querySelector('#inputPassword');
                 event.preventDefault();
                 event.stopPropagation();
                 if (form.checkValidity() === true) {
-                    authenticate();
+                    registrarUsuario();
                 }
                 form.classList.add('was-validated');
             }, false);
         });  
         usuarioInput.value = '';
         passwordInput.value = '';
+        nombreInput.value = '';
+        paternoinput.value = '';
+        maternoinput.value = '';
     }, false);
 })();
 
@@ -29,11 +35,11 @@ var verifyCaptcha = (token) => {
         response: token
     }; 
     if (token !== undefined) {
-        authenticate();
+        registrarUsuario();
     }
 }
 
-let authenticate = () => {
+let registrarUsuario = () => {
     const API_URL = 'http://localhost/libreria/';
     const headers = {
         'Content-Type': 'application/json'
@@ -41,7 +47,10 @@ let authenticate = () => {
 
     if (
         usuarioInput.value.trim().lenght == 0 ||
-        passwordInput.value.trim().lenght == 0
+        passwordInput.value.trim().lenght == 0 ||
+        nombreInput.value.trim().lenght == 0 ||
+        paternoinput.value.trim().lenght == 0 ||
+        maternoinput.value.trim().lenght == 0
     ) {
         Swal.fire(
             'ATENCIÓN',
@@ -52,15 +61,23 @@ let authenticate = () => {
         
     const body = JSON.stringify({
         usuario: usuarioInput.value.trim(),
-        contrasena: passwordInput.value.trim()
+        contrasena: passwordInput.value.trim(),
+        nombre: nombreInput.value.trim(),
+        paterno: paternoinput.value.trim(),
+        materno: maternoinput.value.trim()
     });
 
-    fetch(`${API_URL}cliente/login`, { headers, method: 'post', body })
+    fetch(`${API_URL}cliente/create`, { headers, method: 'post', body })
         .then((res) => res.json())
         .then((response) => {
             if (response.success) {
                 localStorage.setItem('cliente', JSON.stringify(response.cliente));
-                window.location = `controllers/login.php?data=${JSON.stringify(response.cliente)}`;
+                Swal.fire(
+                    'ATENCIÓN',
+                    response.message,
+                    'success'
+                );                
+                window.location = `login.html`;
             } else {
                 Swal.fire(
                     'ATENCIÓN!',
@@ -77,3 +94,4 @@ let authenticate = () => {
             );
         });
 }
+

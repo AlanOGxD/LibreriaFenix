@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Inicio de sesi&oacute;n </title>
+    <title>Nueva cuenta </title>
     <link rel="shortcut icon" href="img/favicon.ico" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/icofont/icofont.min.css">
@@ -17,20 +17,44 @@
 </head>
 
 <body class="text-center animated fadeIn bounceIn border-box">
-    <main class="form-signin">
-        <form>
-            <img class="mb-4" src="assets/img/logo.png" width="150" alt="logo" loading="lazy">
-            <h1 class="h3 mb-3 fw-normal">Inicio de Sesion</h1>
-            <label for="inputEmail" class="visually-hidden">Email address</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required=""
-                autofocus="">
-            <label for="inputPassword" class="visually-hidden">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-            <div class="g-recaptcha m-auto" data-sitekey="6LeA2AMaAAAAAFRBIdAjbjDKG5sjGqdHr9-wswlF"
-                data-callback="verifyCaptcha"></div>
+    <div class="header"></div>
+    <main class="card form-signin">
+        <form class="needs-validation">
+            <img class="mb-4" src="assets/img/logo_2.png" width="150" alt="logo" loading="lazy">
+            <h1 class="h3 mb-3 fw-normal">Formulario de registro</h1>
+
+            <div class="row row form-group">
+                <div class="col mb-2">
+                    <label for="inputusuario" class="visually-hidden">Nombre(s)</label>
+                    <input type="text" pattern="[a-zA-Z]+" id="inputNombres" class="form-control" placeholder="Nombre(s)" required autofocus="" autocomplete="nope">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col mb-2">
+                    <label for="inputusuario" class="visually-hidden">Apellido paterno</label>
+                    <input type="text" pattern="[a-zA-Z]+" id="inputPaterno" class="form-control" placeholder="Apellido paterno" required autofocus="" autocomplete="nope">
+                </div>
+                <div class="col mb-2">
+                    <label for="inputusuario" class="visually-hidden">Apellido materno</label>
+                <input type="text" pattern="[a-zA-Z]+" id="inputMaterno" class="form-control" placeholder="Apellido materno" required autofocus="" autocomplete="nope">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col mb-2">
+                    <label for="inputusuario" class="visually-hidden">Nombre de usuario</label>
+                    <input type="text" id="inputusuario" class="form-control" placeholder="Nombre de usuario" required autofocus="" autocomplete="nope">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col mb-2">
+                    <label for="inputPassword" class="visually-hidden">Password</label>
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required autocomplete="nope">
+                </div>
+            </div>
+
+            <div class="g-recaptcha m-auto text-center" data-sitekey="6LeA2AMaAAAAAFRBIdAjbjDKG5sjGqdHr9-wswlF" data-callback="verifyCaptcha"></div>
             <br>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar sesión</button>
-            <p class="mt-5 mb-3 text-muted">© 2020</p>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Registrarse</button>
         </form>
     </main>
 
@@ -45,7 +69,7 @@
         integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
         crossorigin="anonymous"></script>
     <script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
-    <script src="js/login.js"></script>
+    <script src="js/registro.js"></script>
 </body>
 
 </html>

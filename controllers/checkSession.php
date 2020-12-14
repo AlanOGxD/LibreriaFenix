@@ -19,7 +19,7 @@ if($usuario > 0) {
             session_unset();
             session_destroy();
             // echo "Lhjj".json_encode($_SESSION, JSON_PRETTY_PRINT);
-            header("location: login.php");
+            header("location: login.html");
         }
     }
     // El siguiente key se crea cuando se inicia sesión
