@@ -5,7 +5,7 @@ require_once ('../db/conexion.php');
 class Libro 
 {
 
-    private $table_name = "Libro";
+    private $table_name = "libro";
     private $conexion;
 
     public $idLibro;

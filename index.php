@@ -7,6 +7,7 @@ include_once('controllers/CarritoController.php');
 $carrito = CarritoController::getAll($_SESSION['usuario']);
 $carousel = LibroController::getSuggestions();
 $slider = LibroController::getAll();
+print_r($slider);
 $index = rand(0, count($slider) - 1);
 $libroSemana = $slider[ $index ];
 
