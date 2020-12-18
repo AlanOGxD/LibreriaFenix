@@ -10,6 +10,6 @@ session_regenerate_id();
 // El siguiente key se crea cuando se inicia sesión
 $_SESSION["timeout"] = time();
 header('location: ../index.php');
-
+/** */
 
 ?>

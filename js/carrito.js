@@ -232,7 +232,7 @@ const presentMessage = (message, type) => {
 
 let headers = new Headers();
 headers.append('Content-Type', 'application/json');
-headers.append('Access-Control-Allow-Origin', 'https://papelerialaparroquia.com/');
+//headers.append('Access-Control-Allow-Origin', 'https://papelerialaparroquia.com/');
 
 let AgregarACariito = (isbn) => {
     const url = `${API_URL}carrito/create`;

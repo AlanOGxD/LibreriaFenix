@@ -9,10 +9,7 @@ $usuario = new Usuario();
 $data = ( count($_POST) > 0) ? (object)$_POST : json_decode(file_get_contents("php://input"));
 
 if (
-    isset($data->nombre) &&
-    isset($data->tipo) &&
-    isset($data->usuario) &&
-    isset($data->contrasena)
+    isset($data->nombre,$data->tipo,$data->usuario,$data->contrasena)
 ) {
     $usuario->nombre = $data->nombre;
     $usuario->tipo = $data->tipo;

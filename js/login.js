@@ -25,7 +25,7 @@ const passwordInput = document.querySelector('#inputPassword');
 
 var verifyCaptcha = (token) => {
     const data = {
-        secret: '6LfzgQQaAAAAACVQVQdkY57TDpeMBNLiNlmNV9L8',
+        secret: '6LeA2AMaAAAAAH9vKvE3pg33TyFzD8XpbZIV56OM',
         response: token
     }; 
     if (token !== undefined) {
@@ -34,7 +34,7 @@ var verifyCaptcha = (token) => {
 }
 
 let authenticate = () => {
-    const API_URL = 'http://localhost/libreria/';
+    const API_URL = 'http://localhost/fenix/libreria/';
     const headers = {
         'Content-Type': 'application/json'
     };

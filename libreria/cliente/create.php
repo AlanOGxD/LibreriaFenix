@@ -32,7 +32,7 @@ if (
     }
 } else  {
     http_response_code(400);
-    echo json_encode(array("success" => false, "status" => 400, "message" => "No se puede procesar la solicitud, los datos estan incompletos"));
+    echo json_encode(array("success" => false, "status" => 400, "message" => "No se puede procesar la solicitud, los datos estan incompletos", "data" => $data));
 }
 
 

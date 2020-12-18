@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Inicio de sesi&oacute;n </title>
-    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="shortcut icon" href="assets/img/favicon.ico" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/icofont/icofont.min.css">
     <!-- <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css"> -->
-    <link rel="stylesheet" href="plugins/sweetalert/sweetalert2.min.css">
+    <link rel="stylesheet" href="assets/plugins/sweetalert/sweetalert2.min.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/signin.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -19,14 +19,14 @@
 <body class="text-center animated fadeIn bounceIn border-box">
     <div class="header"></div>
     <main class="card form-signin">
-        <form class="needs-validation">
+        <form class="needs-validation" onsubmit>
             <img class="mb-4" src="assets/img/logo_2.png" width="150" alt="logo" loading="lazy">
             <h1 class="h3 mb-3 fw-normal">Inicio de Sesion</h1>
             <label for="inputusuario" class="visually-hidden">Nombre de usuario</label>
             <input type="text" id="inputusuario" class="form-control" placeholder="Nombre de usuario" required autofocus="" autocomplete="nope">
             <label for="inputPassword" class="visually-hidden">Password</label>
             <input type="password" id="inputPassword" class="form-control" placeholder="Password" required autocomplete="nope">
-            <div class="g-recaptcha m-auto" data-sitekey="6LfW-wYaAAAAALQ7MT6-dZKZjTzHGMm-bvsKl1_t" ></div>
+            <div class="g-recaptcha" data-sitekey="6LfW-wYaAAAAALQ7MT6-dZKZjTzHGMm-bvsKl1_t"></div><!--Se cambia el captcha sitekey-->
             <br>
             <button class="w-100 btn btn-lg btn-primary" type="submit" data-callback="verifyCaptcha">Iniciar sesión</button>
         </form>
@@ -43,7 +43,7 @@
         integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
         crossorigin="anonymous"></script>
     <script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
-    <script src="js/login.js"></script>
+    <script src="js/loginAdmin.js"></script>
 </body>
 
 </html>

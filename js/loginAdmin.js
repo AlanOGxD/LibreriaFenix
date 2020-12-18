@@ -1,8 +1,5 @@
 const usuarioInput = document.querySelector('#inputusuario');
 const passwordInput = document.querySelector('#inputPassword');
-const nombreInput = document.querySelector('#inputNombres');
-const paternoinput = document.querySelector('#inputPaterno');
-const maternoinput = document.querySelector('#inputMaterno');
 
 (function() {
     'use strict';
@@ -15,16 +12,13 @@ const maternoinput = document.querySelector('#inputMaterno');
                 event.preventDefault();
                 event.stopPropagation();
                 if (form.checkValidity() === true) {
-                    registrarUsuario();
+                    authenticate();
                 }
                 form.classList.add('was-validated');
             }, false);
         });  
         usuarioInput.value = '';
         passwordInput.value = '';
-        nombreInput.value = '';
-        paternoinput.value = '';
-        maternoinput.value = '';
     }, false);
 })();
 
@@ -35,11 +29,11 @@ var verifyCaptcha = (token) => {
         response: token
     }; 
     if (token !== undefined) {
-        registrarUsuario();
+        authenticate();
     }
 }
 
-let registrarUsuario = () => {
+let authenticate = () => {
     const API_URL = 'http://localhost/fenix/libreria/';
     const headers = {
         'Content-Type': 'application/json'
@@ -47,10 +41,7 @@ let registrarUsuario = () => {
 
     if (
         usuarioInput.value.trim().lenght == 0 ||
-        passwordInput.value.trim().lenght == 0 ||
-        nombreInput.value.trim().lenght == 0 ||
-        paternoinput.value.trim().lenght == 0 ||
-        maternoinput.value.trim().lenght == 0
+        passwordInput.value.trim().lenght == 0
     ) {
         Swal.fire(
             'ATENCIÓN',
@@ -59,33 +50,17 @@ let registrarUsuario = () => {
         );
     }
         
-    const data = new FormData();
-    data.append('usuario', usuarioInput.value.trim());
-    data.append('contrasena', passwordInput.value.trim());
-    data.append('nombre', nombreInput.value.trim());
-    data.append('paterno', paternoinput.value.trim());
-    data.append('materno', maternoinput.value.trim());
+    const body = JSON.stringify({
+        usuario: usuarioInput.value.trim(),
+        contrasena: passwordInput.value.trim()
+    });
 
-    // const body = JSON.stringify({
-    //     usuario: usuarioInput.value.trim(),
-    //     contrasena: passwordInput.value.trim(),
-    //     nombre: nombreInput.value.trim(),
-    //     paterno: paternoinput.value.trim(),
-    //     materno: maternoinput.value.trim()
-    // });
-
-
-    fetch(`${API_URL}cliente/create`, { method: 'post', body: data })
+    fetch(`${API_URL}usuario/login`, { headers, method: 'post', body })
         .then((res) => res.json())
         .then((response) => {
             if (response.success) {
-                localStorage.setItem('cliente', JSON.stringify(response.cliente));
-                Swal.fire(
-                    'ATENCIÓN',
-                    response.message,
-                    'success'
-                );                
-                window.location = `login.html`;
+                localStorage.setItem('usuario', JSON.stringify(response.usuario));
+                window.location = `controllers/loginAdmin.php?data=${JSON.stringify(response.usuario)}`;
             } else {
                 Swal.fire(
                     'ATENCIÓN!',
@@ -102,4 +77,3 @@ let registrarUsuario = () => {
             );
         });
 }
-

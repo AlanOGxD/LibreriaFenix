@@ -203,7 +203,7 @@ class Libro
             anioPublicacion = :anioPublicacion,
             imagen = :imagen,
             sinopsis = :sinopsis,
-            precio = :precio,
+            precio = :precio
             WHERE idLibro = :idLibro";
 
         $stmt = $this->conexion->prepare($query);
@@ -253,7 +253,7 @@ class Libro
     public function upload_image(String $source, String $destination)
     {
         $valid_ext = array('png','jpeg','jpg','webp','gif');
-        $location = $_SERVER['DOCUMENT_ROOT']. '/libreria/media/'.$destination;
+        $location = $_SERVER['DOCUMENT_ROOT']. '/fenix/libreria/media/'.$destination;
         $file_extension = pathinfo($location, PATHINFO_EXTENSION);
         $file_extension = strtolower($file_extension);
 

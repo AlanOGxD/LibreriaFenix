@@ -5,8 +5,17 @@ include_once '../modelos/libro.php';
 
 $libro = new Libro();
 
-// $data = json_decode(file_get_contents("php://input"));
+// $data = (object)$_POST;
 $data = ( count($_POST) > 0) ? (object)$_POST : json_decode(file_get_contents("php://input"));
+
+$emptyData = array(
+    'isbn' => isset($data->isbn),
+    'nombre' => isset($data->nombre),
+    'autor' => isset($data->autor),
+    'editorial' => isset($data->editorial),
+    'stock' => isset($data->stock),
+    'anioPublicacion' => isset($data->anioPublicacion),
+);
 
 if (
     isset($data->isbn) &&
@@ -60,14 +69,14 @@ if (
     $res = $libro->NuevoLibro();
     if($res === TRUE){
         http_response_code(201);
-        echo json_encode(array("success" => true, "status" => 201, "message" => "Registro creado con éxito.", "libro" => $libro, "uploads" => $upload_result));
+        echo json_encode(array("success" => true, "status" => 201, "message" => "Registro creado con éxito.", "libro" => $libro, "uploads" => $upload_result, "FILES" => $_FILES));
     } else {
         http_response_code(503);
         echo json_encode(array("success" => false, "status" => 503, "message" => $res));
     }
 } else  {
     http_response_code(400);
-    echo json_encode(array("success" => false, "status" => 400, "message" => "No se puede procesar la solicitud, los datos estan incompletos"));
+    echo json_encode(array("success" => false, "status" => 400, "message" => "No se puede procesar la solicitud, los datos estan incompletos", "data" => $data, "bool" => $emptyData));
 }
 
 

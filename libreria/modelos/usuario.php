@@ -5,7 +5,7 @@ require_once ('../db/conexion.php');
 class Usuario 
 {
 
-    private $table_name = "Usuario";
+    private $table_name = "usuario";
     private $conexion;
 
     public $idUsuario;
@@ -65,7 +65,7 @@ class Usuario
 
     public function Login() 
     {
-        $query = "SELECT * FROM $this->table_name WHERE usuario = :usuario AND :contrasena";
+        $query = "SELECT * FROM $this->table_name WHERE usuario = :usuario AND contrasena = :contrasena";
         $stm = $this->conexion->prepare($query);
         $stm->bindParam(":usuario", $this->usuario);
         $stm->bindParam(":contrasena", $this->contrasena);

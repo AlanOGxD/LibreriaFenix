@@ -3,6 +3,7 @@
 class Database
 {   
     protected static $host = "localhost";
+    //protected static $db = "b5_27450890_libreria";
     protected static $db = "libreria";
     protected static $username = "root";
     protected static $password = "";
@@ -29,7 +30,7 @@ class Database
 				self::$instance->query('SET NAMES utf8');
 				self::$instance->query('SET CHARACTER SET utf8');
 			} catch(PDOException $error) {
-				echo $error->getMessage();
+				echo "ERROR EN CONEXION:" . $error->getMessage();
 			}
 
 		}

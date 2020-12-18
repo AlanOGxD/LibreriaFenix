@@ -52,7 +52,7 @@ if (
             $message = "";
             $ur = $libro->upload_image($source, $destination);
             if($ur === TRUE) {
-                $libro->imagen .= ",". $destination;
+                $libro->imagen =  $destination;
             } else {
                 $message = $ur;
                 $ur = false; 
